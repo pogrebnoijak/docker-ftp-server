@@ -1,13 +1,8 @@
 name: Build and Publish Images
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
-    tags:
-      - "*.*.*"
 jobs:
   publish:
     name: Publish
@@ -46,4 +41,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
           labels: ${{ steps.prep.outputs.labels }}
-
